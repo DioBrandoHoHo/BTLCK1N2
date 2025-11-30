@@ -1,0 +1,131 @@
+.dashboard-container {
+  padding: 24px;
+  font-family: sans-serif;
+  min-height: 100vh;
+
+  background-image: url('/images/library-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-container h1 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 36px;
+  font-weight: 800;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #b91c1c; /* đỏ sẫm hơn */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.4); /* viền đen nhẹ để nổi bật */
+}
+
+
+
+.stats-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+
+.charts {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+/* Khung riêng cho từng chart */
+.chart-box {
+  background: #ffffff;              /* nền trắng đặc */
+  border: 2px solid #0ea5e9;        /* viền xanh ngọc */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Export menu ở cuối trang */
+.export-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.export-menu > button {
+  background-color: #0ea5e9;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Menu xổ lên ngay trên nút */
+.export-options {
+  position: absolute;
+  bottom: 110%; /* nằm ngay trên nút Export */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+
+  /* hiệu ứng xuất hiện/biến mất */
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeInUp 0.3s forwards;
+}
+
+.export-options.hide {
+  animation: fadeOutDown 0.3s forwards;
+}
+
+.export-options button {
+  background: none;
+  border: none;
+  padding: 10px 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.export-options button:hover {
+  background-color: #f0f4f8;
+}
+
+/* keyframes cho hiệu ứng */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+  }
+}
+
+@keyframes fadeOutDown {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+    pointer-events: none;
+  }
+}
